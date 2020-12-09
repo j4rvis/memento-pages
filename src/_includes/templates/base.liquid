@@ -1,0 +1,22 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href='/static/styles.css'>
+  {% comment %} <link rel="stylesheet" href='/tailwind.css'> {% endcomment %}
+</head>
+<body>
+  <header>
+    <div class="title">Memento</div>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/tags">Tags</a></li>
+      <li><a href="">About</a></li>
+    </ul>
+  </header>
+  <div class="content">
+    {{ content | safe }}
+  </div>
+  <footer></footer>
+  {% comment %} <script src="/static/js/snow.js"></script> {% endcomment %}
+</body>
+</html>

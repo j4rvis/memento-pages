@@ -1,0 +1,33 @@
+---
+layout: templates/base.liquid
+pagination:
+  data: memos
+  size: 1
+  alias: memo
+permalink: "memos/{{memo.title | slug}}.html"
+---
+<h1>{{memo.title}}</h1>
+
+{% comment %} {{memo | log}} {% endcomment %}
+
+<div class="md-text">
+  {% markdownIt memo.text %}
+</div>
+
+{% if memo.refersTo.size > 0 %}
+<h2>Refers To:</h2>
+<ul>
+  {% for refer in memo.refersTo %}
+  <li><a href="/memos/{{refer.title | slug}}.html">{{refer.title}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if memo.referredBy.size > 0 %}
+<h2>Referred by:</h2>
+<ul>
+  {% for refer in memo.referredBy %}
+  <li><a href="/memos/{{refer.title | slug}}.html">{{refer.title}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}

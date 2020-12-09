@@ -1,0 +1,9 @@
+---
+layout: templates/base.liquid
+---
+Test
+<ul>
+  {% for memo in memos %}
+    <li><a href="/memos/{{memo.title | slug}}.html">{{memo.title}}</a></li>
+  {% endfor %}
+</ul>

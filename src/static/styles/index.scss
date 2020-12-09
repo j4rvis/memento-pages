@@ -1,0 +1,74 @@
+$backgroundDark: #212121;
+$backgroundLight: #424242;
+$primary: green;
+$textPrimary: white;
+
+$breakpoint-desktop: 992px;
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  font-size: large;
+  background-color: $backgroundLight;
+  color: $textPrimary;
+
+  header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include desktop() {
+      top: 0;
+      bottom: unset;
+    }
+    background-color: $backgroundDark;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    .title {
+      font-size: 24px;
+      margin-right: 16px;
+    }
+    .nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-evenly;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @include desktop() {
+        flex-grow: unset;
+        width: 200px;
+        li {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+  .content {
+    @include desktop() {
+      margin-top: 56px;
+      padding-left: 16px;
+    }
+  }
+}
+
+.md-text {
+  img {
+    width: 100%;
+    @include desktop() {
+      width: 500px;
+    }
+  }
+}
+
+a {
+  color: $primary;
+}
